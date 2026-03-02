@@ -99,7 +99,7 @@ export const SocialConnect = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1, duration: 0.5 }}
-                            className="min-w-[300px] md:min-w-[350px] flex-shrink-0 snap-start bg-gray-50/80 rounded-3xl p-8 flex flex-col justify-between"
+                            className="min-w-[300px] md:min-w-[350px] flex-shrink-0 snap-start bg-white/40 backdrop-blur-xl border border-white/60 shadow-[0_8px_32px_0_rgba(31,38,135,0.05)] rounded-3xl p-8 flex flex-col justify-between"
                         >
                             <div>
                                 <div className="flex items-center gap-4 mb-6">
