@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -102,9 +103,12 @@ export const SocialConnect = () => {
                         >
                             <div>
                                 <div className="flex items-center gap-4 mb-6">
-                                    <img
+                                    <Image
                                         src={testimonial.avatarUrl}
                                         alt={testimonial.name}
+                                        width={48}
+                                        height={48}
+                                        unoptimized
                                         className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm"
                                     />
                                     <div>
