@@ -22,11 +22,11 @@ const marketData = [
 
 export const LiveDataBar = () => {
     return (
-        <div className="w-full bg-[#071324] border-y border-brandSlate/10 overflow-hidden py-3">
+        <div className="w-full bg-white border-y border-gray-100 overflow-hidden py-3 shadow-sm relative z-20">
             <div className="relative flex max-w-[100vw] overflow-hidden">
                 {/* Gradient overlays for smooth edges */}
-                <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-[#071324] to-transparent z-10"></div>
-                <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-[#071324] to-transparent z-10"></div>
+                <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+                <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
                 <motion.div
                     className="flex whitespace-nowrap min-w-full"
@@ -40,12 +40,12 @@ export const LiveDataBar = () => {
                     {marketData.map((data, index) => (
                         <div
                             key={`${data.pair}-${index}`}
-                            className="flex items-center space-x-3 px-6 md:px-10 border-r border-brandSlate/10 last:border-none"
+                            className="flex items-center space-x-3 px-6 md:px-10 border-r border-gray-100 last:border-none"
                         >
-                            <span className="font-semibold text-white/90">{data.pair}</span>
-                            <span className="text-white font-mono">{data.price}</span>
+                            <span className="font-semibold text-brandText">{data.pair}</span>
+                            <span className="text-gray-500 font-mono tracking-tight">{data.price}</span>
                             <span
-                                className={`flex items-center text-sm font-medium ${data.up ? 'text-brandEmerald' : 'text-red-400'
+                                className={`flex items-center text-sm font-bold ${data.up ? 'text-brandEmerald' : 'text-red-500'
                                     }`}
                             >
                                 {data.up ? <TrendingUp size={14} className="mr-1" /> : <TrendingDown size={14} className="mr-1" />}

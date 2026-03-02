@@ -18,7 +18,7 @@ const tiers = [
         ],
         buttonText: "Start Learning",
         popular: false,
-        paymentLink: "https://dusupay.com/pay/your-link-here", // REPLACE with your DusuPay or Campay link
+        imgColor: "bg-blue-100",
     },
     {
         name: "Pro Mentorship",
@@ -33,7 +33,7 @@ const tiers = [
         ],
         buttonText: "Join Pro Group",
         popular: true,
-        paymentLink: "https://dusupay.com/pay/your-link-here", // REPLACE with your DusuPay or Campay link
+        imgColor: "bg-indigo-100",
     },
     {
         name: "Elite 1-on-1",
@@ -48,7 +48,7 @@ const tiers = [
         ],
         buttonText: "Apply for Elite",
         popular: false,
-        paymentLink: "https://dusupay.com/pay/your-link-here", // REPLACE with your DusuPay or Campay link
+        imgColor: "bg-emerald-100",
     },
 ];
 
@@ -63,16 +63,15 @@ export const ServiceTiers = () => {
 
     return (
         <>
-            <section id="mentorship" className="py-24 bg-brandDark relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brandSlate/20 to-transparent"></div>
-
+            <section id="mentorship" className="py-24 bg-brandLight relative overflow-hidden">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-                    <div className="text-center max-w-3xl mx-auto mb-16">
+
+                    <div className="mb-12">
                         <motion.h2
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="text-3xl md:text-5xl font-bold text-white mb-6"
+                            className="text-4xl md:text-5xl font-extrabold text-brandText mb-4 tracking-tight"
                         >
                             Mentorship Programs
                         </motion.h2>
@@ -81,9 +80,9 @@ export const ServiceTiers = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 }}
-                            className="text-brandSlate text-lg"
+                            className="text-brandSlate text-lg max-w-2xl"
                         >
-                            Choose the path that fits your current trading journey. Scale from retail to institutional consistency.
+                            Find trusted local experts just around the corner, ready to scale you from retail to institutional consistency.
                         </motion.p>
                     </div>
 
@@ -95,46 +94,53 @@ export const ServiceTiers = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.15, duration: 0.5 }}
-                                whileHover={{ scale: 1.05 }}
-                                className={`relative rounded-2xl border ${tier.popular
-                                    ? "border-brandEmerald bg-[#0F2942]/90 shadow-[0_0_30px_rgba(16,185,129,0.15)]"
-                                    : "border-brandSlate/20 bg-[#0F2942]/40"
-                                    } p-8 backdrop-blur-xl flex flex-col`}
+                                whileHover={{ y: -5 }}
+                                className={`relative rounded-3xl bg-white shadow-xl shadow-slate-200/50 flex flex-col overflow-hidden border border-gray-100 ${tier.popular ? 'ring-2 ring-brandBlue ring-offset-4 ring-offset-white' : ''
+                                    }`}
                             >
-                                {tier.popular && (
-                                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-brandEmerald text-brandDark px-4 py-1 rounded-full text-sm font-bold flex items-center gap-1">
-                                        <Star size={14} fill="currentColor" />
-                                        Most Popular
+                                {/* Decorative "Image" Header mimicking the reference image style */}
+                                <div className={`h-40 w-full ${tier.imgColor} rounded-t-3xl p-6 relative overflow-hidden`}>
+                                    {tier.popular && (
+                                        <div className="absolute top-4 right-4 bg-white text-brandText px-3 py-1 rounded-full text-xs font-bold shadow-sm flex items-center gap-1 z-10">
+                                            <Star size={12} className="text-brandBlue fill-brandBlue" /> Best Value
+                                        </div>
+                                    )}
+                                    {/* Abstract background shapes inside the card header */}
+                                    <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-white/20 rounded-full blur-xl"></div>
+                                    <div className="absolute top-4 -left-4 w-20 h-20 bg-white/30 rounded-full blur-lg"></div>
+                                </div>
+
+                                <div className="p-6 flex-grow flex flex-col">
+                                    <h3 className="text-xl font-bold text-brandText mb-1">{tier.name}</h3>
+                                    <p className="text-brandSlate text-sm mb-6 h-10 line-clamp-2">{tier.description}</p>
+
+                                    <div className="flex items-end gap-1 mb-6">
+                                        <span className="text-sm font-semibold text-brandSlate mb-1">starting at</span>
+                                        <span className="text-3xl font-extrabold text-brandBlue tracking-tight">{tier.price}</span>
                                     </div>
-                                )}
 
-                                <div className="mb-8">
-                                    <h3 className="text-xl font-bold text-white mb-2">{tier.name}</h3>
-                                    <div className="text-4xl font-extrabold text-white mb-4">{tier.price}</div>
-                                    <p className="text-brandSlate text-sm h-10">{tier.description}</p>
+                                    <div className="flex-grow">
+                                        <ul className="space-y-3 mb-8">
+                                            {tier.features.map((feature, i) => (
+                                                <li key={i} className="flex items-start gap-2 text-brandText text-sm font-medium">
+                                                    <div className="mt-0.5 min-w-4 flex items-center justify-center">
+                                                        <Check size={14} className="text-brandBlue" />
+                                                    </div>
+                                                    <span className="leading-snug">{feature}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+
+                                    <button
+                                        onClick={() => handleSelectTier(tier.name, tier.price)}
+                                        className={`w-full py-3.5 px-4 rounded-xl font-bold transition-all text-center block shadow-sm ${tier.popular
+                                            ? "bg-brandBlue hover:bg-blue-600 text-white shadow-blue-500/20"
+                                            : "bg-blue-50 hover:bg-blue-100 text-brandBlue"
+                                            }`}>
+                                        {tier.buttonText}
+                                    </button>
                                 </div>
-
-                                <div className="flex-grow">
-                                    <ul className="space-y-4 mb-8">
-                                        {tier.features.map((feature, i) => (
-                                            <li key={i} className="flex items-start gap-3 text-brandSlate text-sm">
-                                                <div className="mt-0.5 min-w-4 flex items-center justify-center">
-                                                    <Check size={16} className="text-brandEmerald" />
-                                                </div>
-                                                <span className="leading-tight">{feature}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-
-                                <button
-                                    onClick={() => handleSelectTier(tier.name, tier.price)}
-                                    className={`w-full py-3 px-4 rounded-lg font-bold transition-all text-center block ${tier.popular
-                                        ? "bg-brandEmerald hover:bg-emerald-400 text-brandDark"
-                                        : "bg-brandSlate/10 hover:bg-brandSlate/20 text-white border border-brandSlate/20"
-                                        }`}>
-                                    {tier.buttonText}
-                                </button>
                             </motion.div>
                         ))}
                     </div>

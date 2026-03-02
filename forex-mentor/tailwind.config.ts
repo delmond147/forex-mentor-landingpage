@@ -9,11 +9,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#0A192F",
-        foreground: "#FFFFFF",
-        brandDark: "#0A192F",
-        brandEmerald: "#10B981",
-        brandSlate: "#94A3B8",
+        background: "#F4F7FB",
+        foreground: "#111827",
+        // New V2 Brand Colors
+        brandLight: "#FFFFFF",
+        brandBlue: "#2563EB", // Vibrant Action Blue
+        brandEmerald: "#10B981", // Success Green (Retained for trust icons)
+        brandSlate: "#6B7280", // Softer text slate
+        brandText: "#111827", // Primary heading black
       },
     },
   },
