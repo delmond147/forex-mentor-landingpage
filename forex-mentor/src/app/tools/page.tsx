@@ -42,7 +42,7 @@ export default function ToolsDashboard() {
                     <div className="lg:col-span-5 space-y-6 flex flex-col">
                         <PositionSizeCalculator />
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1">
+                        <div className="flex flex-col gap-6 flex-1">
                             <div className="flex flex-col h-full">
                                 <SocialConnectGrid />
                             </div>
