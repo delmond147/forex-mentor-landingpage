@@ -19,13 +19,13 @@ export const Navigation = () => {
 
                     {/* Desktop Navigation Links */}
                     <nav className="hidden md:flex space-x-8">
-                        <Link href="#strategy" className="text-sm font-semibold text-brandSlate hover:text-brandBlue transition-colors">
+                        <Link href="/#strategy" className="text-sm font-semibold text-brandSlate hover:text-brandBlue transition-colors">
                             Strategy
                         </Link>
-                        <Link href="#mentorship" className="text-sm font-semibold text-brandSlate hover:text-brandBlue transition-colors">
+                        <Link href="/#mentorship" className="text-sm font-semibold text-brandSlate hover:text-brandBlue transition-colors">
                             Mentorship
                         </Link>
-                        <Link href="#results" className="text-sm font-semibold text-brandSlate hover:text-brandBlue transition-colors">
+                        <Link href="/#results" className="text-sm font-semibold text-brandSlate hover:text-brandBlue transition-colors">
                             Results
                         </Link>
                         <Link href="/tools" className="text-sm font-bold text-emerald-600 hover:text-emerald-500 transition-colors">

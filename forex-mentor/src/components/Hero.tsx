@@ -37,9 +37,16 @@ export const Hero = () => {
                             className="flex items-center gap-2 mb-6 px-4 py-1.5 bg-white border border-gray-100 rounded-full shadow-sm"
                         >
                             <div className="flex items-center text-brandEmerald">
-                                {[...Array(5)].map((_, i) => (
+                                {[...Array(4)].map((_, i) => (
                                     <Star key={i} size={14} fill="currentColor" />
                                 ))}
+                                {/* Half star simulation by clipping or just using standard half-filled svg if available, but for simplicity we'll just use a Star with stroke and no fill for the 5th, or a specific half star if we import one. Let's use a standard star with partial fill via SVG masking or simply render a half star */}
+                                <div className="relative">
+                                    <Star size={14} className="text-gray-300" fill="currentColor" />
+                                    <div className="absolute top-0 left-0 w-1/2 overflow-hidden text-brandEmerald">
+                                        <Star size={14} fill="currentColor" />
+                                    </div>
+                                </div>
                             </div>
                             <span className="text-xs sm:text-sm font-semibold text-brandText border-b border-brandText cursor-pointer">
                                 4,893 reviews on
@@ -91,34 +98,17 @@ export const Hero = () => {
                             </a>
                         </motion.div>
 
-                        {/* Floating App Icons & Graphics */}
-                        <div className="relative w-full h-64 md:h-80 lg:h-96 mt-16 pointer-events-none">
-
-                            {/* Center Platform Graphic */}
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.8, delay: 0.4 }}
-                                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-80 md:h-80 bg-gradient-to-tr from-blue-100 to-indigo-50 rounded-[40px] rotate-3 shadow-inner border border-white/50 flex items-center justify-center overflow-hidden"
-                            >
-                                {/* Abstract Chart Bars inside center graphic */}
-                                <div className="flex items-end gap-2 h-32 opacity-20">
-                                    <div className="w-8 h-12 bg-brandBlue rounded-t-sm"></div>
-                                    <div className="w-8 h-20 bg-brandBlue rounded-t-sm"></div>
-                                    <div className="w-8 h-16 bg-brandEmerald rounded-t-sm"></div>
-                                    <div className="w-8 h-28 bg-brandEmerald rounded-t-sm"></div>
-                                </div>
-                            </motion.div>
+                        {/* Floating App Icons & Graphics (Now overlaid) */}
+                        <div className="absolute inset-0 pointer-events-none hidden md:block">
 
                             {/* Floating MT5 Icon */}
                             <motion.div
                                 custom={1}
                                 variants={floatVariant}
                                 animate="animate"
-                                className="absolute top-10 left-[10%] md:left-[20%] lg:left-[25%] flex flex-col items-center gap-2"
+                                className="absolute top-[15%] left-[5%] lg:left-[15%] flex flex-col items-center gap-2"
                             >
                                 <div className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-2xl shadow-xl shadow-slate-200/50 flex items-center justify-center p-3 border border-gray-50">
-                                    {/* SVG mock of MT5 logo (blue interlocking circles/shield) */}
                                     <div className="relative w-full h-full text-brandBlue">
                                         <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full drop-shadow-md">
                                             <path d="M12 2L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-3zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-2.33v8.02z" />
@@ -133,7 +123,7 @@ export const Hero = () => {
                                 custom={2}
                                 variants={floatVariant}
                                 animate="animate"
-                                className="absolute top-0 right-[5%] md:right-[15%] lg:right-[20%] flex flex-col items-center gap-2"
+                                className="absolute top-[10%] right-[3%] lg:right-[12%] flex flex-col items-center gap-2"
                             >
                                 <div className="w-20 h-20 md:w-24 md:h-24 bg-brandText rounded-3xl shadow-2xl shadow-slate-900/20 flex items-center justify-center p-4 border border-gray-800 rotate-12">
                                     <div className="text-white font-black text-xl tracking-tighter italic">FTMO</div>
@@ -146,7 +136,7 @@ export const Hero = () => {
                                 custom={3}
                                 variants={floatVariant}
                                 animate="animate"
-                                className="absolute bottom-10 left-[5%] md:left-[15%] lg:left-[22%] flex flex-col items-center gap-2"
+                                className="absolute bottom-[20%] left-[8%] lg:left-[18%] flex flex-col items-center gap-2"
                             >
                                 <div className="w-14 h-14 md:w-16 md:h-16 bg-[#FFEB3B] rounded-full shadow-lg shadow-yellow-500/20 flex items-center justify-center p-2 border-4 border-white -rotate-12">
                                     <span className="font-extrabold text-brandText text-lg -tracking-widest">ex</span>
@@ -159,7 +149,7 @@ export const Hero = () => {
                                 custom={0.5}
                                 variants={floatVariant}
                                 animate="animate"
-                                className="absolute bottom-0 right-[15%] md:right-[25%] lg:right-[30%]"
+                                className="absolute bottom-[10%] right-[8%] lg:right-[20%]"
                             >
                                 <div className="flex items-center gap-3 bg-white px-5 py-3 rounded-full shadow-xl shadow-emerald-500/10 border border-emerald-50">
                                     <CheckCircle2 className="text-brandEmerald" size={24} />
