@@ -28,7 +28,7 @@ export const ToolsPreview = () => {
                         <div className="absolute -inset-1 bg-gradient-to-r from-brandEmerald to-brandBlue rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
                         <div className="relative bg-[#0f172a] rounded-2xl overflow-hidden ring-1 ring-white/10 h-full">
                             {/* Darker background for the calculator to sit in */}
-                            <div className="p-1 sm:p-2 bg-slate-900/50 h-[500px]">
+                            <div className="p-1 sm:p-2 bg-slate-900/50 h-auto min-h-[500px]">
                                 <PositionSizeCalculator />
                             </div>
                         </div>
