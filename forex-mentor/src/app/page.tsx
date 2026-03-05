@@ -1,6 +1,7 @@
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { LiveDataBar } from "@/components/LiveDataBar";
+import { ToolsPreview } from "@/components/ToolsPreview";
 import { ServiceTiers } from "@/components/ServiceTiers";
 import { SocialConnect } from "@/components/SocialConnect";
 import { ContactStrategy } from "@/components/ContactStrategy";
@@ -15,6 +16,7 @@ export default function Home() {
       <div className="flex flex-col w-full">
         <Hero />
         <LiveDataBar />
+        <ToolsPreview />
         <ServiceTiers />
         <SocialConnect />
         <ContactStrategy />

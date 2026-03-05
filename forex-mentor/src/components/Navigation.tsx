@@ -28,6 +28,9 @@ export const Navigation = () => {
                         <Link href="#results" className="text-sm font-semibold text-brandSlate hover:text-brandBlue transition-colors">
                             Results
                         </Link>
+                        <Link href="/tools" className="text-sm font-bold text-emerald-600 hover:text-emerald-500 transition-colors">
+                            Tools
+                        </Link>
                     </nav>
 
                     {/* Connect CTAs */}
